@@ -1,4 +1,5 @@
-This project is CyrtoCurrency App which uses the RapidAPI to fetch the data
+This project is CyrtoCurrency App which uses the RapidAPI to fetch the data.
+The languages used are: JavaScript, HTML, CSS. The Framework used is React.
 This project uses the react libraries such as "antd", "react-redux-toolkit"
 
 
