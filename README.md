@@ -1,3 +1,12 @@
+This project is CyrtoCurrency App which uses the RapidAPI to fetch the data
+This project uses the react libraries such as "antd", "react-redux-toolkit"
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
