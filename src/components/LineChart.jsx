@@ -15,10 +15,13 @@ function LineChart({coinHistory, currentPrice, coinName}) {
     for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
         coinPrice.push(coinHistory?.data?.history[i].price);
       }
+
+      coinPrice.reverse();
     
       for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
         coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp * 1000).toLocaleDateString());
       }
+      coinTimestamp.reverse();
     console.log(coinPrice);
     console.log(coinTimestamp);
     const data = {
