@@ -8,7 +8,30 @@ const Navbar = () => {
     const[activeMenu, setActiveMenu]=useState(true);
     const[screenSize , setScreenSize]=useState(null);
 
-    
+    useEffect(()=>{
+        //create a function called handleResize 
+        const handleResize= ()=> setScreenSize(window.innerWidth);
+
+        //add the event listener
+        //when window is resized then handle the resize 
+        window.addEventListener('resize', handleResize);
+
+        //call the function
+        handleResize();
+
+        //unmount from the event listener
+        return ()=> window.removeEventListener('resize', handleResize);
+    }, [])
+
+    useEffect(()=>{
+        if(screenSize< 768){
+            setActiveMenu(false);
+        }
+        else{
+            setActiveMenu(true);
+        }
+
+    }, [screenSize])
 
   return (
     <div className="nav-container">
@@ -17,8 +40,11 @@ const Navbar = () => {
             <Typography.Title level={2} className="logo">
                 <Link to ="/">Crytoverse</Link>
             </Typography.Title>
-       
+           <Button className='menu-control-container' onClick={()=> setActiveMenu(!activeMenu)}>
+               <MenuOutlined />
+           </Button>
         </div>
+        {activeMenu &&(
         <Menu theme= "dark"> 
             <Menu.Item icon={<HomeOutlined/>}>
                 <Link to="/">Home</Link>
@@ -33,6 +59,7 @@ const Navbar = () => {
                 <Link to="/news">News</Link>
             </Menu.Item>
         </Menu>
+        )}
 
 
     </div>
